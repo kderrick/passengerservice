@@ -2,11 +2,26 @@ package com.kyle.restwsclient;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
 import com.kyle.restwsclient.model.Passenger;
 
-public interface PassengerService {
 
+@Path("/passengerservice")
+@Produces("application/xml")
+@Consumes("application/xml")
+public interface PassengerService {
+	
+	
+		@Path("/passengers")
+		@GET
 		List<Passenger> getPassengers();
 		
-		Passenger addPassenger();
+		@Path("/passengers")
+		@POST
+		Passenger addPassenger(Passenger passenger);
 }

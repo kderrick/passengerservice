@@ -1,5 +1,8 @@
 package com.kyle.restwsclient.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Passenger {
 	
 	private int id;

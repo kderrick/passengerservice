@@ -2,8 +2,11 @@ package com.kyle.restwsclient;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MultivaluedMap;
 
 import org.springframework.stereotype.Service;
 
@@ -23,10 +26,17 @@ public class PassengerServiceImpl implements PassengerService {
 	}
 
 	@Override
-	public void addPassenger(String firstName, String lastName, String agent) {
+	public void addPassenger(String firstName, String lastName, String agent, HttpHeaders headers) {
 		System.out.println(firstName);
 		System.out.println(lastName);
 		System.out.println(agent);
+		
+		MultivaluedMap<String, String> allHeaders = headers.getRequestHeaders();
+		Set<String> headersKeys = allHeaders.keySet();
+		for(String key : headersKeys) {
+			System.out.println(key);
+			System.out.println(headers.getHeaderString(key));
+		}
 	}
 
 }

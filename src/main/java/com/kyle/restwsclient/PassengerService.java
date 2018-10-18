@@ -9,6 +9,8 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 
 import com.kyle.restwsclient.model.Passenger;
 
@@ -27,5 +29,5 @@ public interface PassengerService {
 		@POST
 		void addPassenger(@FormParam("firstName")String firstName, 
 				@FormParam("lastName")String lastName, 
-				@HeaderParam("agent")String agent);
+				@HeaderParam("agent")String agent, @Context HttpHeaders headers);
 }

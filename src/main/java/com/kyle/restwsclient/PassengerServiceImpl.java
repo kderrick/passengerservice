@@ -2,9 +2,11 @@ package com.kyle.restwsclient;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MultivaluedMap;
 
@@ -37,6 +39,15 @@ public class PassengerServiceImpl implements PassengerService {
 			System.out.println(key);
 			System.out.println(headers.getHeaderString(key));
 		}
+		
+		Map<String, Cookie> cookies = headers.getCookies();
+		Set<String> cookieKeys = cookies.keySet();
+		for (String eachCookieKey : cookieKeys) {
+			System.out.println("----------Cookies----------");
+			System.out.println(eachCookieKey);
+			System.out.println(cookies.get(eachCookieKey).getValue());
+		}
+		
 	}
 
 }
